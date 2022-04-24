@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+          ">
+       <!--    spring bean cfg -->
+    <!--       dependent class cfg as spring bean   -->
+          <bean id="dt" class ="java.util.Date"/>
+          
+          <bean id="dt1" class="java.util.Date">
+          
+          <property name="year" value="120"/>
+          <property name="month" value="8"/>
+          <property name="date" value="30"/>
+          </bean>
+    <!--       target class cfg as spring bean -->
+          <bean id="wmg" class="com.nt.beans.WishMessageGenerator">
+          <constructor-arg name="date" ref="dt"/><!--  constructor injection -->
+          <property name="date" ref="dt1"></property> <!-- for setter injection  -->
+          </bean>
+          
+          <bean id="st" class="com.nt.beans.Student">
+          <constructor-arg name="sno" value="1001"/>
+         <constructor-arg name="sname" value="raja"/> 
+          <constructor-arg name="sadd" value="vizag"/>
+       	<property name="course" value="java"/>
+       	<property name="avg" value="86.5"/>
+          </bean>
+          
+          
+          
+           </beans>
